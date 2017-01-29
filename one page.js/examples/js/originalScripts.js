@@ -7,8 +7,6 @@ $(document).ready(function() {
         navigationTooltips: ['First page', 'Second page', 'Third and last page'],
         responsiveWidth: 900,
         afterResponsive: function(isResponsive){
-
         }
-
     });
 });

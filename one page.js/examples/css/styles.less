@@ -7,6 +7,15 @@
             height: 100% !important;
         }
 	}
+
+@font-face {
+    font-family: RobotoSlab; /* Имя шрифта */
+    src: url(fonts/RobotoSlab-Regular.ttf); /* Путь к файлу со шрифтом */
+   }
+@font-face {
+    font-family: RobotoSlabBold; /* Имя шрифта */
+    src: url(fonts/RobotoSlab-Bold.ttf); /* Путь к файлу со шрифтом */
+   }
         
 /* Backgrounds will cover all the section
 * --------------------------------------- */
@@ -19,14 +28,14 @@
 /* Defining each section background and styles
 * --------------------------------------- */
 #section0{
-    background-image: url(../imgs/First%20test%20screen.png);
+    background-image: url(../imgs/section1.jpg);
     padding: 30% 0 0 0;
 }
 #section1{
-    background-image: url(../imgs/second%20test%20screen.png)
+    background-image: url(../imgs/section2.gif)
 }
 #section2{
-    background-image: url(../imgs/third%20test%20screen.png);
+    background-image: url(../imgs/section3.gif);
     padding: 6% 0 0 0;
 }
 
@@ -49,15 +58,31 @@
     width: 100%;
     
     .logo{
+        display: inline-block;
         background-image: url(../imgs/logo.png);
         background-repeat:no-repeat;
         background-size: 100% 100%;
-        width: 100px;
-        height: 80px;
+        width: 7vw;
+        height: 5vw;
     }
     
     .text-header{
-        
+        display: inline-block;
+        span{
+            font-size: 2vw;
+            font-family: RobotoSlabRegular;
+            display: block;
+        }
+        span:nth-child(2){
+            font-weight: 900;
+            color: #e42537;
+        }
     }
 }
 
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

@@ -825,7 +825,7 @@
         * Creates a vertical navigation bar.
         */
         function addVerticalNavigation(){
-            $body.append('<div id="' + SECTION_NAV + '"><ul></ul></div>');
+            $body.append('<div id="' + SECTION_NAV + '" class="nav-menu-desktop "><ul id="my-ul"></ul></div>');
             var nav = $(SECTION_NAV_SEL);
 
             nav.addClass(function() {
@@ -837,8 +837,20 @@
                 if (options.anchors.length) {
                     link = options.anchors[i];
                 }
+                var textByJigurda = '';
+                switch (i){
+                    case 0:
+                        textByJigurda = 'Строка №1';
+                        break;
+                    case 1:
+                        textByJigurda = 'Строка №2';
+                        break;
+                    case 2:
+                        textByJigurda = 'Строка №3';
+                        break;
+                 }
 
-                var li = '<li><a href="#' + link + '"><span></span></a>';
+                var li = '<li><a href="#' + link + '"><span>' + textByJigurda + '</span></a>';
 
                 // Only add tooltip if needed (defined by user)
                 var tooltip = options.navigationTooltips[i];

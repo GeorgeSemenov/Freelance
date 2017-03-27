@@ -75,21 +75,24 @@
             color: #e42537;
         }
     }
+    @logo_width_desktop: 7vw;
+    @logo_height_desktop: 5vw;
+    @header_text_desktop: 2vw;
     .desktop{
         .logo{
-            width: 7vw;
-            height: 5vw;
+            width: @logo_width_desktop;
+            height: @logo_height_desktop;
             margin-top: -4%;
         }
-        span{font-size: 2vw;}
+        span{font-size: @header_text_desktop;}
     }
     .mobile{
         .logo{
-            width: 15vw;
-            height: 10vw;
+            width: @logo_width_desktop*2;
+            height: @logo_height_desktop*2;
             margin-top: -7%;
         }
-        span{font-size: 3.8vw;}
+        span{font-size: @header_text_desktop*2;}
     }
 }
 
@@ -100,12 +103,9 @@
         width: 100%;
         height: 20px;
         
-        a{
-            height: auto;
-            width: 100%;
-            
-            span{ /*первый спан это маркер списка*/
-                left: 0;
+        a { /*первый спан это маркер списка*/
+            span{left: 0;}
+            &.active span{
                 height: 30px;
                 width: 30px;
                 background: #fbb658;

@@ -75,24 +75,24 @@
             color: #e42537;
         }
     }
-    @logo_width_desktop: 7vw;
-    @logo_height_desktop: 5vw;
-    @header_text_desktop: 2vw;
+    @logo-width-desktop: 7vw;
+    @logo-height-desktop: 5vw;
+    @header-text-desktop: 2vw;
     .desktop{
         .logo{
-            width: @logo_width_desktop;
-            height: @logo_height_desktop;
+            width: @logo-width-desktop;
+            height: @logo-height-desktop;
             margin-top: -4%;
         }
-        span{font-size: @header_text_desktop;}
+        span{font-size: @header-text-desktop;}
     }
     .mobile{
         .logo{
-            width: @logo_width_desktop*2;
-            height: @logo_height_desktop*2;
+            width: @logo-width-desktop*2;
+            height: @logo-height-desktop*2;
             margin-top: -7%;
         }
-        span{font-size: @header_text_desktop*2;}
+        span{font-size: @header-text-desktop*2;}
     }
 }
 
@@ -104,10 +104,24 @@
         height: 20px;
         
         a { /*первый спан это маркер списка*/
-            span{left: 0;}
-            &.active span{
-                height: 30px;
-                width: 30px;
+            .marker-radius(@n:1){//Миксина для простого указания радиуса маркеров
+                @marker-radius: 0.7vw;
+                height: @marker-radius*@n;
+                width: @marker-radius*@n;
+                margin-left: -1*@marker-radius*@n;
+            }
+            
+            i {
+                font-style: normal;
+            }
+            span{//все маркеры
+                left: 0;
+                background: #ffffff;
+                .marker-radius;
+                
+            }
+            &.active span{//активный маркер
+                .marker-radius(2);
                 background: #fbb658;
             }
         }

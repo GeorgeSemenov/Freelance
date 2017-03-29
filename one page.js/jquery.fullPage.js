@@ -840,17 +840,17 @@
                 var textByJigurda = '';
                 switch (i){
                     case 0:
-                        textByJigurda = 'Строка №1';
+                        textByJigurda = 'Услугу по замене СИП<br>Услугу по замена опор линии<br>электропередач';
                         break;
                     case 1:
-                        textByJigurda = 'Строка №2';
+                        textByJigurda = 'Замена внутренней электропроводки<br>Электромантажные работы';
                         break;
                     case 2:
-                        textByJigurda = 'Строка №3';
+                        textByJigurda = 'Гарантия качества<br>Большой опыт работы';
                         break;
                  }
 
-                var li = '<li><a href="#' + link + '"><span>' + textByJigurda + '</span></a>';
+                var li = '<li><a href="#' + link + '"><span></span> <i>' + textByJigurda + '</i></a>';
 
                 // Only add tooltip if needed (defined by user)
                 var tooltip = options.navigationTooltips[i];

@@ -50,6 +50,7 @@
     padding: 6% 0 0 0;
 }
         
+@header-text-desktop: 2vw;
 .header{
     z-index: 1;
     position: absolute;
@@ -77,7 +78,6 @@
     }
     @logo-width-desktop: 7vw;
     @logo-height-desktop: 5vw;
-    @header-text-desktop: 2vw;
     .desktop{
         .logo{
             width: @logo-width-desktop;
@@ -101,28 +101,62 @@
     
     ul#my-ul li{//Специально придумал этот id чтобы эти стили имели выше приоритет, ну не писать же к каждому стилю !important
         width: 100%;
-        height: 20px;
+        height: auto;
         
-        a { /*первый спан это маркер списка*/
-            .marker-radius(@n:1){//Миксина для простого указания радиуса маркеров
-                @marker-radius: 0.7vw;
-                height: @marker-radius*@n;
-                width: @marker-radius*@n;
-                margin-left: -1*@marker-radius*@n;
+        @marker-radius: 0.7vw;
+        .marker-radius(@n:1){//Миксина для простого указания радиуса маркеров
+            height: @marker-radius*@n;
+            width: @marker-radius*@n;
+            margin-left: -1*@marker-radius*@n;//Центруем неактивные маркеры отностиельно центра активного маркера.
+        }
+        
+        a {            
+            i {//Список работ текст
+                font-style: normal;
+                font-family: RobotoSlabRegular;
+                position: relative;
+                left: .5vw;
             }
             
-            i {
-                font-style: normal;
+            span{ left: 0;}
+            
+            @text-job-active:1.3vw;            
+            &:not([class="active"]) {
+                @not-active-color:gainsboro;
+                i{//список работ неактивный текст
+                    color: @not-active-color;
+                    font-size: @text-job-active*0.8;
+                }
+                span{//Неактивные маркеры
+                    background: @not-active-color;
+                    .marker-radius(0);
+                }
             }
-            span{//все маркеры
-                left: 0;
-                background: #ffffff;
-                .marker-radius;
-                
+            
+            &.active {
+                @active-color: #fbb658;
+                i{//список работ активный текст
+                    font-size: @text-job-active;
+                    color: @active-color;
+                }
+                span{//активный маркер
+                    .marker-radius(2);
+                    background: @active-color;
+                }
             }
-            &.active span{//активный маркер
-                .marker-radius(2);
-                background: #fbb658;
+        }
+        
+        &:hover a:not([class="active"]) {
+            @not-active-hover-color: white;
+            i{//неактивный текст работ при наведении
+                color: @not-active-hover-color;
+            }
+            span{//Неактивные маркеры при наведении
+                width: @marker-radius*1.2;
+                height: @marker-radius*1.2;
+                top:-@marker-radius*0.1;
+                left:-@marker-radius*0.1;
+                background: @not-active-hover-color;
             }
         }
     }

@@ -695,6 +695,8 @@
             //vertical centered of the navigation + active bullet
             if(options.navigation){
                 addVerticalNavigation();
+            }else{
+                addMobileVerticalNavigation();
             }
 
             enableYoutubeAPI();
@@ -840,7 +842,7 @@
                 var textByJigurda = '';
                 switch (i){
                     case 0:
-                        textByJigurda = 'Услугу по замене СИП<br>Услугу по замена опор линии<br>электропередач';
+                        textByJigurda = 'Услугу по замене СИП<br>Услугу по замена опор линии электропередач';
                         break;
                     case 1:
                         textByJigurda = 'Замена внутренней электропроводки<br>Электромантажные работы';
@@ -850,7 +852,7 @@
                         break;
                  }
 
-                var li = '<li><a href="#' + link + '"><span></span> <i>' + textByJigurda + '</i></a>';
+                var li = '<li><a href="#' + link + '"><span></span> <i class="unselectable">' + textByJigurda + '</i></a>';
 
                 // Only add tooltip if needed (defined by user)
                 var tooltip = options.navigationTooltips[i];
@@ -870,6 +872,10 @@
             //activating the current active section
             $(SECTION_NAV_SEL).find('li').eq($(SECTION_ACTIVE_SEL).index(SECTION_SEL)).find('a').addClass(ACTIVE);
         }
+        
+//        addMobileVerticalNavigation(){
+//            $body.append('<div id=" fp-mobile-nav " class="nav-menu-desktop "><ul id="my-ul"></ul></div>');
+//        }
 
         /**
         * Creates the slim scroll scrollbar for the sections and slides inside them.

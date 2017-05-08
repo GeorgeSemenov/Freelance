@@ -49,7 +49,14 @@
     background-image: url(../imgs/Andrew.jpg);
     padding: 6% 0 0 0;
 }
-        
+
+#jirni{
+    width: 500px;
+    height: 500px;
+    background: green;
+    top: 0;
+    position: absolute;
+}
 @header-text-desktop: 2vw;
 .header{
     z-index: 1;
@@ -96,12 +103,13 @@
     }
 }
 
-.nav-menu-desktop{
-    width: 35%;
+
+.nav-menu{
+    h1.text-title{font-weight: 700;}
+
     
     ul#my-ul li{//Специально придумал этот id чтобы эти стили имели выше приоритет, ну не писать же к каждому стилю !important
         width: 100%;
-        height: auto;
         
         @marker-radius: 0.7vw;
         .marker-radius(@n:1){//Миксина для простого указания радиуса маркеров
@@ -109,6 +117,7 @@
             width: @marker-radius*@n;
             margin-left: -1*@marker-radius*@n;//Центруем неактивные маркеры отностиельно центра активного маркера.
         }
+        @not-active-marker-top:45%;
         
         a {            
             i {//Список работ текст
@@ -118,7 +127,9 @@
                 left: .5vw;
             }
             
-            span{ left: 0;}
+            span{//для всех маркеров 
+                top:@not-active-marker-top;
+            }
             
             @text-job-active:1.3vw;            
             &:not([class="active"]) {
@@ -130,6 +141,7 @@
                 span{//Неактивные маркеры
                     background: @not-active-color;
                     .marker-radius;
+                    left: -1%;
                 }
             }
             
@@ -142,6 +154,8 @@
                 span{//активный маркер
                     .marker-radius(2);
                     background: @active-color;
+                    top: @not-active-marker-top - 10%;
+                    left: 0;
                 }
             }
         }
@@ -167,4 +181,46 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+@media (max-device-width:992px){//Для мобилок и планшетиков
+    div#fp-nav {
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        height: 21%;
+        
+        h1.text-title{
+            margin-left: 1vw;
+            font-size: 4vw;
+        }
+        ul{
+            height: 21%;
+            
+            li{
+                border: 2px solid white;
+                height: 100%
+            }
+        }
+    }
+}
+
+@media (min-device-width:993px){//Для крупномасштабных мониторов.
+    div#fp-nav{
+        width: 35%;
+        top: 50%;
+        right: -7%;
+
+        
+        ul#my-ul {
+            
+            h1.text-title{
+                margin-left: 1vw;
+                font-size: 1.3vw;
+            }
+            li {
+                 height: auto;
+            }
+        }
+    }
 }

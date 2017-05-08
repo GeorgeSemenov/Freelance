@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2015 alvarotrigo.com - A project by Alvaro Trigo
  */
+
 (function(global, factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -695,8 +696,7 @@
             //vertical centered of the navigation + active bullet
             if(options.navigation){
                 addVerticalNavigation();
-            }else{
-                addMobileVerticalNavigation();
+//                addMobileVerticalNavigation();
             }
 
             enableYoutubeAPI();
@@ -807,6 +807,7 @@
             container.find(options.slideSelector).addClass(SLIDE);
         }
 
+
         /**
         * Creates the control arrows for the given section
         */
@@ -827,7 +828,8 @@
         * Creates a vertical navigation bar.
         */
         function addVerticalNavigation(){
-            $body.append('<div id="' + SECTION_NAV + '" class="nav-menu-desktop "><ul id="my-ul"></ul></div>');
+            var title='<h1 class = "unselectable text-title ">Дачный электрик предлагает:</h1>';
+            $body.append('<div id="' + SECTION_NAV + '" class="nav-menu ">'+ title +'<ul id="my-ul"></ul></div>');
             var nav = $(SECTION_NAV_SEL);
 
             nav.addClass(function() {
@@ -840,19 +842,25 @@
                     link = options.anchors[i];
                 }
                 var textByJigurda = '';
+                var textByMobileJigurda = '';
                 switch (i){
                     case 0:
                         textByJigurda = 'Услугу по замене СИП<br>Услугу по замена опор линии электропередач';
+                        textByMobileJigurda = 'Услуги по замене СИП и опор ЛЭП';
                         break;
                     case 1:
                         textByJigurda = 'Замена внутренней электропроводки<br>Электромантажные работы';
+                        textByMobileJigurda = 'Все виды электромонтажных работы';
                         break;
                     case 2:
                         textByJigurda = 'Гарантия качества<br>Большой опыт работы';
+                        textByMobileJigurda = 'Гарантия качества сделанных работ';
                         break;
                  }
-
-                var li = '<li><a href="#' + link + '"><span></span> <i class="unselectable">' + textByJigurda + '</i></a>';
+                
+                var italicTag = '<i class="unselectable hidden-xs hidden-sm">' + textByJigurda + '</i>';
+                var boldTag = '<b class="unselectable hidden-md hidden-lg">' + textByMobileJigurda + '</b>'
+                var li = '<li><a href="#' + link + '"><span>' + boldTag + '</span> '+ italicTag +'</a>';
 
                 // Only add tooltip if needed (defined by user)
                 var tooltip = options.navigationTooltips[i];
@@ -864,6 +872,7 @@
                 li += '</li>';
 
                 nav.find('ul').append(li);
+                
             }
 
             //centering it vertically
@@ -873,9 +882,6 @@
             $(SECTION_NAV_SEL).find('li').eq($(SECTION_ACTIVE_SEL).index(SECTION_SEL)).find('a').addClass(ACTIVE);
         }
         
-//        addMobileVerticalNavigation(){
-//            $body.append('<div id=" fp-mobile-nav " class="nav-menu-desktop "><ul id="my-ul"></ul></div>');
-//        }
 
         /**
         * Creates the slim scroll scrollbar for the sections and slides inside them.
@@ -3086,8 +3092,10 @@
          * @return {String|Object} Can be a string containing HTML,
          *                         a DOM element, or jQuery object.
          */
+        
         wrapContent: function() {
             return '<div class="' + SCROLLABLE + '"><div class="fp-scroller"></div></div>';
         }
     };
 });
+

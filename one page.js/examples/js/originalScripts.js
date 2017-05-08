@@ -5,7 +5,7 @@ $(document).ready(function() {
         navigation: true,
         navigationPosition: 'right',
         //navigationTooltips: ['First page', 'Second page', 'Third and last page'],
-        responsiveWidth: 900,
+        responsiveWidth: 000,
         afterResponsive: function(isResponsive){
         }
     });

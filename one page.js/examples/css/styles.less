@@ -50,6 +50,7 @@
     padding: 6% 0 0 0;
 }
 
+@active-color: #fbb658;
 #jirni{
     width: 500px;
     height: 500px;
@@ -61,7 +62,7 @@
 .header{
     z-index: 1;
     position: absolute;
-    background: #fbb658;
+    background: @active-color;
     text-align: center;
     width: 100%;
     
@@ -104,7 +105,6 @@
 }
 
 
-@active-color: #fbb658;
 .nav-menu{
     h1.text-title{font-weight: 700;}
 
@@ -188,6 +188,38 @@
     -moz-transition: @n ease-out .1s;
     -webkit-transition: @n ease-out .1s;
     -o-transition: @n ease-out .1s;
+}
+
+#section2{
+    .partner-list{
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        height: 100%;
+        
+        .flex-item{
+            border: 10px solid red;
+            width: 33%;
+            font-family: RobotoSlabBold; 
+            font-size: 1.8vw;
+            font-weight: bold;
+            
+            span{
+                color: @active-color;
+            }
+            
+            ul{
+                list-style-image: url(../imgs/rhombus.jpg);
+                li{
+                    text-align: left;
+                    color: #88c4ee;
+                }
+            }
+        }    
+    }
 }
 @media (max-device-width:992px){//Для мобилок и планшетиков
     div#fp-nav {

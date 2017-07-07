@@ -181,6 +181,7 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+    cursor: default;
 }
 
 .transition(@n:.1s){
@@ -191,34 +192,65 @@
 }
 
 #section2{
-    .partner-list{
-        display: -ms-flexbox;
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: flex;
-        justify-content: flex-start;
-        align-items: stretch;
-        height: 100%;
+    .partner-list-and-phone-us-section{
+        flex-direction: column;
+        font-family: RobotoSlabBold; 
+        font-weight: bold;
         
-        .flex-item{
-            border: 10px solid red;
-            width: 33%;
-            font-family: RobotoSlabBold; 
-            font-size: 1.8vw;
-            font-weight: bold;
+        .partner-list{
+            
+            .position(){
+                position: relative;
+                top: -5vw;
+            }
+            .flex-item{
+                
+                span{
+                    color: @active-color;
+                    .position();
+                }
+
+                ul{
+                    .position();
+                    list-style: none;
+                    margin-top: 2vw;
+                    padding: 0;
+                    margin-left: 2.2vw;
+                    li{
+                        margin-bottom: 1vw;
+                        text-align: left;
+                        color: #88c4ee;
+                        background: url(../imgs/Rhombus.png) no-repeat;
+                        background-size: 7%;
+                        background-position: 4.7vw;
+                    }
+                }
+            }    
+        }
+        
+        .last-words{
+            width: 100%;
             
             span{
                 color: @active-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             
-            ul{
-                list-style-image: url(../imgs/rhombus.jpg);
-                li{
-                    text-align: left;
-                    color: #88c4ee;
-                }
+            .phone-tube{
+                width: 3.5vw;
+                height: 3.5vw;
+                opacity: .9;
+                cursor: pointer;
+                background-image: url("../imgs/phone-tube.png");
+                background-size: cover;
+                
+                &:hover{opacity: 1;}
+                
+                &:active{background-image: url("../imgs/pressed-phone-tube.png");}
             }
-        }    
+        }
     }
 }
 @media (max-device-width:992px){//Для мобилок и планшетиков
@@ -268,8 +300,23 @@
                     &:not([class="active"]) span{//Неактивная ссылка на мобилке
                         font-size: 3vw;
                         border-color: white;
+                        color: white;
                     }
                 }
+            }
+        }
+    }
+    
+    .partner-list-and-phone-us-section{
+        font-size: 5vw;
+        
+        .partner-list{
+            .flex-item {
+                text-align: left;
+                
+                span{margin-left: 14.2vw;}
+                
+                ul li{padding-left: 11.62vw;}
             }
         }
     }
@@ -295,6 +342,30 @@
                     i{.transition();}
                 }
             }
+        }
+    }
+    
+    .partner-list-and-phone-us-section{
+        display: flex;
+        font-size:1.8vw;
+        
+        .flex-item{
+            width: 36%;
+            
+            ul{
+                li{padding-left: 7.68vw;}
+                
+                &.left-column{margin-left: 3.8vw;}
+            }
+        }
+        
+        .partner-list{
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
         }
     }
 }

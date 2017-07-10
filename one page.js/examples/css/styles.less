@@ -104,9 +104,12 @@
     }
 }
 
-
+//Это стили менюшки.
 .nav-menu{
-    h1.text-title{font-weight: 700;}
+    h1.text-title{
+        font-weight: 700;
+        color: black;
+    }
 
     
     ul#my-ul li{//Специально придумал этот id чтобы эти стили имели выше приоритет, ну не писать же к каждому стилю !important
@@ -191,6 +194,12 @@
     -o-transition: @n ease-out .1s;
 }
 
+.square-side-value(@a){
+    width: @a;
+    height: @a;
+}
+
+//Тут все стили того что находиться на последней секции
 #section2{
     .partner-list-and-phone-us-section{
         flex-direction: column;
@@ -233,14 +242,10 @@
             
             span{
                 color: @active-color;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+
             }
             
             .phone-tube{
-                width: 3.5vw;
-                height: 3.5vw;
                 opacity: .9;
                 cursor: pointer;
                 background-image: url("../imgs/phone-tube.png");
@@ -253,7 +258,9 @@
         }
     }
 }
+
 @media (max-device-width:992px){//Для мобилок и планшетиков
+    .invisible-on-mobile{display: none !important;}
     div#fp-nav {
         bottom: 0px;
         width: 100%;
@@ -309,6 +316,8 @@
     
     .partner-list-and-phone-us-section{
         font-size: 5vw;
+        position: relative;
+        top: -8vw;
         
         .partner-list{
             .flex-item {
@@ -319,14 +328,29 @@
                 ul li{padding-left: 11.62vw;}
             }
         }
+        
+        .last-words{
+                
+            span a{
+                display: flex;
+                justify-content: center;
+            }
+            .phone-tube{.square-side-value(11vw);}
+        }
     }
 }
 
 @media (min-device-width:993px){//Для крупномасштабных мониторов.
+    .invisible-on-desktop{display: none !important;}
     div#fp-nav{
         width: 35%;
         top: 50%;
         right: -7%;
+        
+        h1{
+            font-size: 1.5vw;
+            padding-left: .9vw;
+        }
 
         ul#my-ul {
             
@@ -366,6 +390,15 @@
             display: flex;
             justify-content: flex-start;
             align-items: stretch;
+        }
+        
+        .last-words {
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .phone-tube{.square-side-value(3.5vw);}
         }
     }
 }

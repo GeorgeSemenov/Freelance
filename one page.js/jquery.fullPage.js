@@ -85,6 +85,7 @@
     var SLIDES_NEXT_SEL =       '.' + SLIDES_NEXT;
     var SLIDES_ARROW_NEXT =     SLIDES_ARROW + ' ' + SLIDES_NEXT;
     var SLIDES_ARROW_NEXT_SEL = SLIDES_ARROW_SEL + SLIDES_NEXT_SEL;
+    var isFirstTime = true;
 
     var $window = $(window);
     var $document = $(document);
@@ -1416,7 +1417,7 @@
         /**
         * Scrolls the site to the given element and scrolls to the slide if a callback is given.
         */
-        function scrollPage(element, callback, isMovementUp){
+        function scrollPage(element, callback, isMovementUp){//Эта функция срабатывает, когда ты переключаешь боковое меню по вертикали Джигурда
             if(typeof element === 'undefined'){ return; } //there's no element to scroll, leaving the function
 
             var dtop = getDestinationPosition(element);
@@ -1485,6 +1486,11 @@
 
             //avoid firing it twice (as it does also on scroll)
             activateMenuAndNav(v.anchorLink, v.sectionIndex);
+            
+            if(isFirstTime && ($(SECTION_ACTIVE_SEL).index() == 2)){//Вот функция, которая будет срабатывать, когда пользователь будет спукаться до 3-го слайда.
+                isFirstTime=false;
+                //alert($(SECTION_ACTIVE_SEL).index());//ВОТ ОНО ВОТОТДЛОРТЛДЫВРПЛДОР ДЖИГУРДА!!!!!
+            }
         }
 
         /**

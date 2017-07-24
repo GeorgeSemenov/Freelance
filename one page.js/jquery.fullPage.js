@@ -1489,6 +1489,22 @@
             
             if(isFirstTime && ($(SECTION_ACTIVE_SEL).index() == 2)){//Вот функция, которая будет срабатывать, когда пользователь будет спукаться до 3-го слайда.
                 isFirstTime=false;
+                var mobileButton = $('.invisible-on-desktop .phone-tube');
+                var desktopButton = $('.invisible-on-mobile .phone-tube');
+                function changeTransition(){
+                    desktopButton.css('transition','all 0s ease 0s');
+                    mobileButton.css('transition','all 0s ease 0s');
+                }
+                $('.flex-item ul li i').css('left','0');
+                desktopButton.css(  {"width":"3.5vw",
+                                     "height":"3.5vw",
+                                     "top":"0",
+                                     "left":"0"});
+                mobileButton.css(  {"width":"15vw",
+                                    "height":"15vw",
+                                    "top":"0",
+                                    "left":"0"});
+                setTimeout(changeTransition, 500);
                 //alert($(SECTION_ACTIVE_SEL).index());//ВОТ ОНО ВОТОТДЛОРТЛДЫВРПЛДОР ДЖИГУРДА!!!!!
             }
         }

@@ -188,7 +188,7 @@
 }
 
 .transition(@n:.1s){
-    tranistion: @n ease-out .1s;
+    transition: @n ease-out .1s;
     -moz-transition: @n ease-out .1s;
     -webkit-transition: @n ease-out .1s;
     -o-transition: @n ease-out .1s;
@@ -200,6 +200,13 @@
 }
 
 //Тут все стили того что находиться на последней секции
+.transition2(@n){
+                transition-duration: 1s;
+                transition-delay: @n;
+                transition-timing-function: cubic-bezier(0, .5, .5, 1.2);
+            }
+@phone-tube-block-side-for-mobile:15vw;
+@phone-tube-block-side-for-desktop:3.5vw;
 #section2{
     .partner-list-and-phone-us-section{
         flex-direction: column;
@@ -233,10 +240,29 @@
                         background-size: 7%;
                         background-position: 4.7vw;
                         
-                        i{font-style: normal;}
+                        i{
+                            font-style: normal;
+                            position: relative;
+                            left: -69vw;
+                        }
                     }
                 }
             }    
+            
+            //Анимация
+            
+            ul.right-column{
+                li:nth-child(1){i{.transition2(0.5s);}}
+                li:nth-child(2){i{.transition2(.6s);}}
+            }
+            ul.left-column {
+                li:nth-child(1){i{.transition2(1s);}}
+                li:nth-child(2){i{.transition2(1.1s);}}
+                li:nth-child(3){i{.transition2(1.2s);}}
+                li:nth-child(4){i{.transition2(1.3s);}}
+                li:nth-child(5){i{.transition2(1.4s);}}
+                li:nth-child(6){i{.transition2(1.5s);}}
+            }
         }
         
         .last-words{
@@ -247,12 +273,20 @@
 
             }
             
+            .phone-tube-container {display: inline-block;}
+            .phone-tube-container.invisible-on-mobile{.square-side-value(@phone-tube-block-side-for-desktop);}
+            .phone-tube-container.invisible-on-desktop{.square-side-value(@phone-tube-block-side-for-mobile);}
+            
             .phone-tube{
+                position: relative;
+                top: 50%;
+                left: 50%;
                 opacity: .9;
                 cursor: pointer;
                 background-image: url("../imgs/phone-tube.png");
                 background-size: cover;
-                
+                .square-side-value(0);
+                .transition2(2.5s);
                 &:hover{opacity: 1;}
                 
                 &:active{background-image: url("../imgs/pressed-phone-tube.png");}
@@ -337,7 +371,6 @@
                 display: flex;
                 justify-content: center;
             }
-            .phone-tube{.square-side-value(11vw);}
         }
     }
 }
@@ -379,9 +412,15 @@
             width: 36%;
             
             ul{
-                li{padding-left: 7.68vw;}
+                li{
+                    padding-left: 7.68vw;
+
+                }
                 
-                &.left-column{margin-left: 3.8vw;}
+                &.left-column{
+                    margin-left: 3.8vw;
+                    //i{left: -30vw;}
+                }
             }
         }
         
@@ -392,6 +431,8 @@
             display: flex;
             justify-content: flex-start;
             align-items: stretch;
+            
+            .flex-item>span{left: -2vw;}
         }
         
         .last-words {
@@ -400,7 +441,6 @@
                 justify-content: center;
                 align-items: center;
             }
-            .phone-tube{.square-side-value(3.5vw);}
         }
     }
 }

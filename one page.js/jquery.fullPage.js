@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2015 alvarotrigo.com - A project by Alvaro Trigo
  */
+
 (function(global, factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -84,6 +85,7 @@
     var SLIDES_NEXT_SEL =       '.' + SLIDES_NEXT;
     var SLIDES_ARROW_NEXT =     SLIDES_ARROW + ' ' + SLIDES_NEXT;
     var SLIDES_ARROW_NEXT_SEL = SLIDES_ARROW_SEL + SLIDES_NEXT_SEL;
+    var isFirstTime = true;
 
     var $window = $(window);
     var $document = $(document);
@@ -695,6 +697,7 @@
             //vertical centered of the navigation + active bullet
             if(options.navigation){
                 addVerticalNavigation();
+//                addMobileVerticalNavigation();
             }
 
             enableYoutubeAPI();
@@ -805,6 +808,7 @@
             container.find(options.slideSelector).addClass(SLIDE);
         }
 
+
         /**
         * Creates the control arrows for the given section
         */
@@ -825,7 +829,8 @@
         * Creates a vertical navigation bar.
         */
         function addVerticalNavigation(){
-            $body.append('<div id="' + SECTION_NAV + '"><ul></ul></div>');
+            var title='<h1 class = "unselectable text-title ">Дачный электрик предлагает:</h1>';
+            $body.append('<div id="' + SECTION_NAV + '" class="nav-menu ">'+ title +'<ul id="my-ul"></ul></div>');
             var nav = $(SECTION_NAV_SEL);
 
             nav.addClass(function() {
@@ -837,8 +842,26 @@
                 if (options.anchors.length) {
                     link = options.anchors[i];
                 }
-
-                var li = '<li><a href="#' + link + '"><span></span></a>';
+                var textByJigurda = '';
+                var textByMobileJigurda = '';
+                switch (i){
+                    case 0:
+                        textByJigurda = 'Услугу по замене СИП<br>Услугу по замена опор линии электропередач';
+                        textByMobileJigurda = 'Услуги по замене СИП и опор ЛЭП';
+                        break;
+                    case 1:
+                        textByJigurda = 'Замена внутренней электропроводки<br>Электромантажные работы';
+                        textByMobileJigurda = 'Все виды электромонтажных работы';
+                        break;
+                    case 2:
+                        textByJigurda = 'Гарантия качества<br>Большой опыт работы';
+                        textByMobileJigurda = 'Гарантия качества сделанных работ';
+                        break;
+                 }
+                
+                var italicTag = '<i class="unselectable hidden-xs hidden-sm">' + textByJigurda + '</i>';
+                var boldTag = '<b class="unselectable hidden-md hidden-lg">' + textByMobileJigurda + '</b>'
+                var li = '<li><a href="#' + link + '"><span>' + boldTag + '</span> '+ italicTag +'</a>';
 
                 // Only add tooltip if needed (defined by user)
                 var tooltip = options.navigationTooltips[i];
@@ -850,6 +873,7 @@
                 li += '</li>';
 
                 nav.find('ul').append(li);
+                
             }
 
             //centering it vertically
@@ -858,6 +882,7 @@
             //activating the current active section
             $(SECTION_NAV_SEL).find('li').eq($(SECTION_ACTIVE_SEL).index(SECTION_SEL)).find('a').addClass(ACTIVE);
         }
+        
 
         /**
         * Creates the slim scroll scrollbar for the sections and slides inside them.
@@ -1392,7 +1417,7 @@
         /**
         * Scrolls the site to the given element and scrolls to the slide if a callback is given.
         */
-        function scrollPage(element, callback, isMovementUp){
+        function scrollPage(element, callback, isMovementUp){//Эта функция срабатывает, когда ты переключаешь боковое меню по вертикали Джигурда
             if(typeof element === 'undefined'){ return; } //there's no element to scroll, leaving the function
 
             var dtop = getDestinationPosition(element);
@@ -1461,6 +1486,27 @@
 
             //avoid firing it twice (as it does also on scroll)
             activateMenuAndNav(v.anchorLink, v.sectionIndex);
+            
+            if(isFirstTime && ($(SECTION_ACTIVE_SEL).index() == 2)){//Вот функция, которая будет срабатывать, когда пользователь будет спукаться до 3-го слайда.
+                isFirstTime=false;
+                var mobileButton = $('.invisible-on-desktop .phone-tube');
+                var desktopButton = $('.invisible-on-mobile .phone-tube');
+                function changeTransition(){
+                    desktopButton.css('transition','all 0s ease 0s');
+                    mobileButton.css('transition','all 0s ease 0s');
+                }
+                $('.flex-item ul li i').css('left','0');
+                desktopButton.css(  {"width":"3.5vw",
+                                     "height":"3.5vw",
+                                     "top":"0",
+                                     "left":"0"});
+                mobileButton.css(  {"width":"15vw",
+                                    "height":"15vw",
+                                    "top":"0",
+                                    "left":"0"});
+                setTimeout(changeTransition, 500);
+                //alert($(SECTION_ACTIVE_SEL).index());//ВОТ ОНО ВОТОТДЛОРТЛДЫВРПЛДОР ДЖИГУРДА!!!!!
+            }
         }
 
         /**
@@ -3068,8 +3114,10 @@
          * @return {String|Object} Can be a string containing HTML,
          *                         a DOM element, or jQuery object.
          */
+        
         wrapContent: function() {
             return '<div class="' + SCROLLABLE + '"><div class="fp-scroller"></div></div>';
         }
     };
 });
+

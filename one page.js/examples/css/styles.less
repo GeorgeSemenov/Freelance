@@ -1,0 +1,472 @@
+.section, .slide{
+		text-align:center;
+		background-size: auto 100% !important;
+        background-repeat:no-repeat;
+        background-position-x: center;
+        .fp-tableCell{
+            height: 100% !important;
+        }
+	}
+
+@font-face {
+    font-family: RobotoSlab; /* Имя шрифта */
+    src: url(fonts/RobotoSlab-Regular.ttf); /* Путь к файлу со шрифтом */
+   }
+@font-face {
+    font-family: RobotoSlabBold; /* Имя шрифта */
+    src: url(fonts/RobotoSlab-Bold.ttf); /* Путь к файлу со шрифтом */
+   }
+        
+/* Backgrounds will cover all the section
+* --------------------------------------- */
+.slide{
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0{
+    background-image: url(../imgs/section1.jpg);
+    padding: 30% 0 0 0;
+}
+#section1{
+    background-image: url(../imgs/section2.gif)
+}
+#section2{
+    background-image: url(../imgs/section3.gif);
+    padding: 6% 0 0 0;
+}
+
+/*Adding background for the slides
+* --------------------------------------- */
+#slide1{
+    background-image: url(../imgs/Andrew2.jpg);
+    padding: 6% 0 0 0;
+}
+#slide2{
+    background-image: url(../imgs/Andrew.jpg);
+    padding: 6% 0 0 0;
+}
+
+@active-color: #fbb658;
+#jirni{
+    width: 500px;
+    height: 500px;
+    background: green;
+    top: 0;
+    position: absolute;
+}
+@header-text-desktop: 2vw;
+.header{
+    z-index: 1;
+    position: absolute;
+    background: @active-color;
+    text-align: center;
+    width: 100%;
+    
+    .logo{
+        display: inline-block;
+        background-image: url(../imgs/logo.png);
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .text-header{
+        display: inline-block;
+        span{
+            font-family: RobotoSlabRegular;
+            display: block;
+        }
+        span:nth-child(2){
+            font-weight: 900;
+            color: #e42537;
+        }
+    }
+    @logo-width-desktop: 7vw;
+    @logo-height-desktop: 5vw;
+    .desktop{
+        .logo{
+            width: @logo-width-desktop;
+            height: @logo-height-desktop;
+            margin-top: -4%;
+        }
+        span{font-size: @header-text-desktop;}
+    }
+    .mobile{
+        .logo{
+            width: @logo-width-desktop*2;
+            height: @logo-height-desktop*2;
+            margin-top: -7%;
+        }
+        span{font-size: @header-text-desktop*2;}
+    }
+}
+
+//Это стили менюшки.
+.nav-menu{
+    h1.text-title{
+        font-weight: 700;
+        color: black;
+    }
+
+    
+    ul#my-ul li{//Специально придумал этот id чтобы эти стили имели выше приоритет, ну не писать же к каждому стилю !important
+        width: 100%;
+        
+        @marker-radius: 0.7vw;
+        .marker-radius(@n:1){//Миксина для простого указания радиуса маркеров
+            height: @marker-radius*@n;
+            width: @marker-radius*@n;
+            margin-left: -1*@marker-radius*@n;//Центруем неактивные маркеры отностиельно центра активного маркера.
+        }
+        @not-active-marker-top:45%;
+        
+        a {            
+            i {//Список работ текст
+                font-style: normal;
+                font-family: RobotoSlabRegular;
+                position: relative;
+                left: .5vw;
+            }
+            
+            span{//для всех маркеров 
+                top:@not-active-marker-top;
+            }
+            
+            @text-job-active:1.3vw;            
+            &:not([class="active"]) {
+                @not-active-color:gainsboro;
+                i{//список работ неактивный текст
+                    color: @not-active-color;
+                    font-size: @text-job-active*0.8;
+                }
+                span{//Неактивные маркеры
+                    background: @not-active-color;
+                    .marker-radius;
+                    left: -1%;
+                }
+            }
+            
+            &.active {
+                i{//список работ активный текст
+                    font-size: @text-job-active;
+                    color: @active-color;
+                }
+                span{//активный маркер
+                    .marker-radius(2);
+                    background: @active-color;
+                    top: @not-active-marker-top - 10%;
+                    left: 0;
+                }
+            }
+        }
+        
+        &:hover a:not([class="active"]) {
+            @not-active-hover-color: white;
+            i{//неактивный текст работ при наведении
+                color: @not-active-hover-color;
+            }
+            span{//Неактивные маркеры при наведении
+                width: @marker-radius*1.2;
+                height: @marker-radius*1.2;
+//                top:-@marker-radius*0.1;
+//                left:-@marker-radius*0.1;
+                background: @not-active-hover-color;
+            }
+        }
+    }
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+    cursor: default;
+}
+
+.transition(@n:.1s){
+    transition: @n ease-out .1s;
+    -moz-transition: @n ease-out .1s;
+    -webkit-transition: @n ease-out .1s;
+    -o-transition: @n ease-out .1s;
+}
+
+.square-side-value(@a){
+    width: @a;
+    height: @a;
+}
+
+.transition2(@n){
+                transition-duration: 1s;
+                transition-delay: @n;
+                transition-timing-function: cubic-bezier(0, .5, .5, 1.2);
+            }
+@phone-tube-block-side-for-mobile:15vw;
+@phone-tube-block-side-for-desktop:3.5vw;
+//Тут все стили того что находиться на последней секции
+#section2{
+    .partner-list-and-phone-us-section{
+        flex-direction: column;
+        font-family: RobotoSlabBold; 
+        font-weight: bold;
+        
+        .partner-list{
+            
+            .position(){
+                position: relative;
+                top: -5vw;
+            }
+            .flex-item{
+                
+                span{
+                    color: @active-color;
+                    .position();
+                }
+
+                ul{
+                    .position();
+                    list-style: none;
+                    margin-top: 2vw;
+                    padding: 0;
+                    margin-left: 2.2vw;
+                    li{
+                        margin-bottom: 1vw;
+                        text-align: left;
+                        color: #88c4ee;
+                        background: url(../imgs/Rhombus.png) no-repeat;
+                        background-size: 7%;
+                        background-position: 4.7vw;
+                        
+                        i{
+                            font-style: normal;
+                            
+                        }
+                    }
+                }
+            }    
+
+        }
+        
+        .last-words{
+            width: 100%;
+            
+            span{
+                color: @active-color;
+
+            }
+            
+            .phone-tube-container {display: inline-block;}
+            .phone-tube-container.invisible-on-mobile{.square-side-value(@phone-tube-block-side-for-desktop);}
+            .phone-tube-container.invisible-on-desktop{.square-side-value(@phone-tube-block-side-for-mobile);}
+            
+            .phone-tube{
+                position: relative;
+                top: 50%;
+                left: 50%;
+                opacity: .9;
+                cursor: pointer;
+                background-image: url("../imgs/phone-tube.png");
+                background-size: cover;
+                .square-side-value(0);
+                &:hover{opacity: 1;}
+                
+                &:active{background-image: url("../imgs/pressed-phone-tube.png");}
+            }
+        }
+    }
+}
+
+@media (max-device-width:992px){//Для мобилок и планшетиков
+    .invisible-on-mobile{display: none !important;}
+    div#fp-nav {
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        height: 20%;
+        
+        h1.text-title{
+            margin: 0 0 0 1vw;
+            font-size: 4vw;
+            height: 20%;
+        }
+        ul#my-ul{
+            height: 81%;
+            
+            li{
+                height: 33%;
+                
+                a {
+                    span{//Для всех ссылок.
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        margin: 0 0 1% 0;
+                        background-color: transparent;
+                        left: 0;
+                        border: solid 5px;
+                        .transition(.5s);
+                        
+                        b{
+                            position: absolute;
+                            display: block;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 100%;
+                        }
+                    }
+                    &.active span{//активная ссылка на мобилке
+                        border: solid 5px @active-color;
+                        font-size: 4vw;
+                        color: @active-color;
+                    }
+                    &:not([class="active"]) span{//Неактивная ссылка на мобилке
+                        font-size: 3vw;
+                        border-color: white;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    
+    .partner-list-and-phone-us-section{
+        font-size: 5vw;
+        position: relative;
+        top: -8vw;
+        
+        .partner-list{
+            .flex-item {
+                text-align: left;
+                
+                span{margin-left: 14.2vw;}
+                
+                ul li{
+                    padding-left: 11.62vw;
+                    
+                    i{
+                        position: relative;
+                        left: -89vw;
+                    }
+                }
+            }
+        }
+        
+        .last-words{
+                
+            span a{
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
+        //Анимация
+        ul.right-column{
+            li:nth-child(1){i{.transition2(1s);}}
+            li:nth-child(2){i{.transition2(1.2s);}}
+        }
+        ul.left-column {
+            li:nth-child(1){i{.transition2(.5s);}}
+            li:nth-child(2){i{.transition2(.6s);}}
+            li:nth-child(3){i{.transition2(.7s);}}
+        }
+        .phone-tube{.transition2(2s);}
+        //Конец анимации
+    }
+}
+
+@media (min-device-width:993px){//Для крупномасштабных мониторов.
+    .invisible-on-desktop{display: none !important;}
+    div#fp-nav{
+        width: 35%;
+        top: 50%;
+        right: -7%;
+        
+        h1{
+            font-size: 1.5vw;
+            padding-left: .9vw;
+        }
+
+        ul#my-ul {
+            
+            h1.text-title{
+                margin-left: 1vw;
+                font-size: 1.3vw;
+            }
+            li {
+                height: auto;
+                margin: 7px;
+                a {
+                    span{border-radius: 50%;}
+                    i{.transition();}
+                }
+            }
+        }
+    }
+    
+    .partner-list-and-phone-us-section{
+        display: flex;
+        font-size:1.8vw;
+        
+        .flex-item{
+            width: 36%;
+            
+            ul{
+                li{
+                    padding-left: 7.68vw;
+                    
+                i{
+                        position: relative;
+                        left: -69vw;
+                    }
+
+                }
+                
+                &.left-column{
+                    margin-left: 3.8vw;
+                }
+            }
+            
+        }
+        
+        .partner-list{
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            
+            .flex-item>span{left: -2vw;}            
+
+        }
+        
+        .last-words {
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        //Анимация
+        ul.right-column{
+            li:nth-child(1){i{.transition2(0.5s);}}
+            li:nth-child(2){i{.transition2(.6s);}}
+        }
+        ul.left-column {
+            li:nth-child(1){i{.transition2(1s);}}
+            li:nth-child(2){i{.transition2(1.1s);}}
+            li:nth-child(3){i{.transition2(1.2s);}}
+            li:nth-child(4){i{.transition2(1.3s);}}
+            li:nth-child(5){i{.transition2(1.4s);}}
+            li:nth-child(6){i{.transition2(1.5s);}}
+        }
+        .phone-tube{.transition2(2.5s);}
+        //Конец анимации
+    }
+}

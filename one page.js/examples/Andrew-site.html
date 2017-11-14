@@ -2,115 +2,99 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Andrew true montage</title>
-	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
-	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
-	<meta name="Resource-type" content="Document" />
-
-
+	<meta name="author" content="Evgeniya Semenova" />
+	<meta name="description" content="Andrew adjusetr's site" />
+	<meta name="keywords"  content="adjuster, монтажник, монтажные работы, проводка, ЛЭП, линия элкетро передач" />
+    <link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" type="text/css" href="../jquery.fullPage.css" />
-        
-    <style>
-    .section{
-		text-align:center;
-	}
-
-
-	/* Backgrounds will cover all the section
-	* --------------------------------------- */
-	.section{
-		background-size: cover;
-	}
-	.slide{
-		background-size: cover;
-	}
-        
-    /* Defining each section background and styles
-	* --------------------------------------- */
-	#section0{
-		background-image: url(imgs/Andrew.jpg);
-		padding: 30% 0 0 0;
-	}
-	#section2{
-		background-image: url(imgs/Andrew.jpg);
-		padding: 6% 0 0 0;
-	}
-        
-	/*Adding background for the slides
-	* --------------------------------------- */
-	#slide1{
-		background-image: url(imgs/Andrew2.jpg);
-		padding: 6% 0 0 0;
-	}
-	#slide2{
-		background-image: url(imgs/Andrew.jpg);
-		padding: 6% 0 0 0;
-	}
-
-
-    </style>
-
 		<!--[if IE]>
 		<script type="text/javascript">
 			 var console = { log: function() {} };
 		</script>
 	<![endif]-->
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-
-	<script type="text/javascript" src="../vendors/scrolloverflow.js"></script>
-
+    
+<!--    На кой шут этот скрипт нужен?-->
+<!--	<script type="text/javascript" src="../vendors/scrolloverflow.js"></script>-->
 	<script type="text/javascript" src="../jquery.fullPage.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				anchors: ['firstPage', 'secondPage', '3rdPage'],
-				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
-				navigation: true,
-				navigationPosition: 'right',
-				navigationTooltips: ['First page', 'Second page', 'Third and last page'],
-				responsiveWidth: 900,
-				afterResponsive: function(isResponsive){
-					
-				}
-
-			});
-		});
-	</script>
+	<script type="text/javascript" src="js/originalScripts.js"></script>
+    
+    <!-- Подключаем ярость бутстрапа -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
+<div class="header"> 
+    <div class="desktop hidden-sm hidden-xs">
+        <img class="logo" src="imgs/logo.png"/>
+        <div class="text-header unselectable">
+            <span>Дачный электрик решит все вопросы в сфере электромонтажных работ</span>
+            <span>Звони сейчас +79041079244</span>
+        </div>
+    </div>
+    <div class="mobile hidden-lg hidden-md">
+        <img class="logo" src="imgs/logo.png">
+        <div class="text-header unselectable hidden-lg hidden-md">
+            <span>Нужен электрик?</span>
+            <span>Звони +79041079244</span>
+        </div>
+    </div>
+</div>
 
 <div id="fullpage">
-	<div class="section " id="section0">
-		<div class="intro">
-			<h1>Responsive</h1>
-			<p>This example will turn to normal scroll when the window size gets smaller than 900px width</p>
-		</div>
-	</div>
-	<div class="section" id="section1">
-	    <div class="slide" id="slide1">
-			<div class="intro">
-				<h1>Ideal for small screens</h1>
-			</div>
-		</div>
-
-	    <div class="slide" id="slide2">
-			<h1>This example uses responsiveWidth: 900</h1>
-		</div>
-
-	</div>
-	<div class="section" id="section2">
-		<div class="intro">
-			<h1>Keep it simple!</h1>
-		</div>
-	</div>
+	<div class="section " id="section0"></div>
+	<div class="section" id="section1"></div>
+	<div class="section" id="section2"> 
+        <div class="partner-list-and-phone-us-section">
+            <div class="partner-list unselectable">
+                <div class="flex-item">
+                    <span>Наши клиенты:</span>
+                    <ul class="left-column">
+                        <li><i>СНТ Недр в попе кедр</i></li>
+                        <li><i>СНТ Олимпийский</i></li>
+                        <li><i>СНТ Ранчо сранчо</i></li>
+                        <li class="invisible-on-mobile"><i>СНТ Вурдысь</i></li>
+                        <li class="invisible-on-mobile"><i>СНТ Мечта голубка</i></li>
+                        <li class="invisible-on-mobile"><i>СНТ Тылаю в тылу врага</i></li>
+                    </ul>
+                </div>
+                <div class="flex-item">
+                    <span>Наши компаньоны:</span>
+                    <ul class = "right-column">
+                        <li><i>ООО РСК Север ветренный</i></li>
+                        <li><i>ООО Стройэнерго ломайматерио</i></li>
+                    </ul>
+                </div>
+</div>
+            <div class="last-words unselectable">
+                <span class="invisible-on-mobile">У нас большoй опыт работы с клиентами. Ещё остались сомнения?
+                    <br/>
+                </span>
+                <span class="invisible-on-desktop">Остались сомнения?<br/></span>
+                <span>Тогда позвоните&nbsp;
+                    <span class="invisible-on-mobile">в гей клуб</span>
+                    <span class="invisible-on-desktop">капитану Педрильё</span>
+                    <a href="skype:+7123456789?call" class="phone-tube-container invisible-on-mobile">
+                        <div class="phone-tube"></div>
+                    </a>
+                    <a href="tel:+7123456789" class="phone-tube-container invisible-on-desktop">
+                        <div class="phone-tube"></div>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 </body>
 </html>
+<!--В этом примере используется класс intro который судя по всему полезен для адаптивных текстов, не знаю насколько это правда , надо зачекать.

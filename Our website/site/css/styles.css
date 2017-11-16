@@ -1,1 +1,1 @@
-header{background-color:#ececec}
+@font-face{font-family:NotoSans;src:url(../fonts/NotoSans-Regular.ttf)}body{font-family:NotoSans;height:20000px}header{background-color:#ececec;position:fixed}header nav{border:1px solid}header nav a.logo{display:inline-block;background:url(../imgs/logo.png) no-repeat;background-size:cover;height:100px;width:100px}header nav ul{list-style-type:none}header nav ul li a{font-size:19px}

@@ -1,4 +1,34 @@
-//Общие настройки для двух и более типов устройств
+//Общие настройки для всех типов устройств
+@font-face{
+    font-family: NotoSans;
+    src: url(../fonts/NotoSans-Regular.ttf)
+}
+body{
+    font-family: NotoSans;
+    height: 20000px;
+}
+
 header{
     background-color: #ececec;
+    position: fixed;
+    nav{
+        border: 1px solid;
+        
+        a.logo{
+            display: inline-block;
+            background: url("../imgs/logo.png") no-repeat;
+            background-size: cover;
+            height: 100px;
+            width: 100px;
+        }
+        ul{
+            list-style-type: none;
+            
+            li{
+                a{
+                    font-size: 19px;
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,65 @@
+//-----------------------------------DESKTOP-----------------------------------------------------
+@media screen and (min-device-width:1001px){//Во имя широких мониторов!!
+    @desktop-header-height: 100px;
+    nav{
+        width: 1000px;
+        height: @desktop-header-height;
+        
+        a.logo{
+            width: @desktop-header-height;
+            height: @desktop-header-height;
+        }
+    
+        ul{
+        }
+    }
+}
+
+//-----------------------------------PAD---------------------------------------------------------
+@media screen and (min-device-width:769px) and (max-device-width:1000px){//За честь планшетов!
+    @pad-header-height:70px;
+    nav{
+        width: 768px;
+        height: @pad-header-height;
+        
+        a.logo{
+            width: @pad-header-height;
+            height: @pad-header-height;
+        }
+    }
+    
+}
+
+//-----------------------------------MOBILE-------------------------------------------------------
+@media screen and (max-device-width:768px){//мобильнички тоже устройства.
+@mobile-header-height: 40px;
+    nav{
+        height: @mobile-header-height;
+        
+        a.logo{
+            width: @mobile-header-height;
+            height: @mobile-header-height;
+        }
+    }
+    
+}
+
+//-----------------------------------DESKTOP AND PAD--------------------------------------------
+@media screen and (min-device-width:769px){//Для планшетов и мониторов
+
+    header{
+        nav{
+            margin: 0 auto;
+            
+            ul{
+                display: inline-block;
+                position: relative;
+                top: -50px;
+                
+                li{
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

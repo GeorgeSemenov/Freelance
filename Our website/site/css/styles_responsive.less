@@ -5,14 +5,20 @@
         width: 1000px;
         height: @desktop-header-height;
         
+        }
         a.logo{
             width: @desktop-header-height;
             height: @desktop-header-height;
         }
     
         ul{
+            @distance-between-elements: 30px;
+            margin-left: @distance-between-elements !important;
+            
+            li{
+                .button-settings(@distance-between-elements,146px);
+            }
         }
-    }
 }
 
 //-----------------------------------PAD---------------------------------------------------------
@@ -23,11 +29,14 @@
         height: @pad-header-height;
         
         a.logo{
-            width: @pad-header-height;
-            height: @pad-header-height;
+        width: @pad-header-height;
+        height: @pad-header-height;
         }
-    }
-    
+            
+        ul li{ 
+                .button-settings(27px,141px)
+            }
+        }
 }
 
 //-----------------------------------MOBILE-------------------------------------------------------
@@ -54,7 +63,9 @@
             ul{
                 display: inline-block;
                 position: relative;
-                top: -50px;
+                top: -40%;
+                margin: 0;
+                padding: 0;
                 
                 li{
                     display: inline-block;
@@ -62,4 +73,9 @@
             }
         }
     }
+}
+
+.button-settings(@margin-right,@width){
+    margin-right: @margin-right;
+    width: @width;
 }

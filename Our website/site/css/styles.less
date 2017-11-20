@@ -26,12 +26,21 @@ header{
             list-style-type: none;
             
             li{
-                border: 2px solid;
                 text-align: center;
-                border:2px solid #909f98;
+                border-radius: 30px;
+                box-sizing: border-box;
+                
                 a{
                     font-size: 19px;
                     text-decoration: none;
+                    color: black;
+                }
+                
+                &:hover{
+                    border:2px solid #909f98;
+                    left: -2px;
+                    
+                    a{}
                 }
                 
                 &:last-child{margin-right: 0;}

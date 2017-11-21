@@ -1,8 +1,9 @@
+@import "Global_variables";
 //-----------------------------------DESKTOP-----------------------------------------------------
 @media screen and (min-device-width:1001px){//Во имя широких мониторов!!
-    @desktop-header-height: 100px;
+    
     nav{
-        width: 1000px;
+        width: 860px;
         height: @desktop-header-height;
         
         }
@@ -12,20 +13,25 @@
         }
     
         ul{
-            @distance-between-elements: 30px;
-            margin-left: @distance-between-elements !important;
+            margin-left: @desktop-distance-between-buttons !important;
             
             li{
-                .button-settings(@distance-between-elements,146px);
+                .button-settings(@desktop-distance-between-buttons,146px);                    
+                
+                &:hover{
+                    border:2px solid #909f98;
+                    left: -2px;
+                }
+
             }
         }
 }
 
 //-----------------------------------PAD---------------------------------------------------------
 @media screen and (min-device-width:769px) and (max-device-width:1000px){//За честь планшетов!
-    @pad-header-height:70px;
+    
     nav{
-        width: 768px;
+        width: 760px;
         height: @pad-header-height;
         
         a.logo{
@@ -33,15 +39,19 @@
         height: @pad-header-height;
         }
             
-        ul li{ 
-                .button-settings(27px,141px)
+        ul {
+            margin-left: 30px;
+            
+            li{ 
+                    .button-settings(20px,145px);                  
+
+                }
             }
         }
 }
 
 //-----------------------------------MOBILE-------------------------------------------------------
 @media screen and (max-device-width:768px){//мобильнички тоже устройства.
-@mobile-header-height: 40px;
     nav{
         height: @mobile-header-height;
         
@@ -63,13 +73,15 @@
             ul{
                 display: inline-block;
                 position: relative;
+                padding: 0;
                 top: -40%;
                 margin: 0;
-                padding: 0;
                 
                 li{
                     display: inline-block;
-                }
+
+                    &:last-child{margin-right: 0;}
+                    }
             }
         }
     }
@@ -78,4 +90,21 @@
 .button-settings(@margin-right,@width){
     margin-right: @margin-right;
     width: @width;
+}
+
+//-----------------------------------PAD AND MOBILE--------------------------------------------
+@media screen and (max-device-width:1000px){//Для планшетов и моблных
+    header{
+        nav{
+            ul{
+                li{
+                    border: 2px solid #909f98;
+                    &:active{
+                        background-color: #989f98;
+                        a{color: #e8e8e8;}
+                    }
+                }
+            }
+        }
+    }
 }

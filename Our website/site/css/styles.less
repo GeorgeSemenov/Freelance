@@ -1,3 +1,4 @@
+@import "Global_variables";
 //Общие настройки для всех типов устройств
 @font-face{
     font-family: NotoSans;
@@ -15,13 +16,15 @@ header{
     width: 100%;
     
     nav{
-        background-color: greenyellow;
         
-        a.logo{
+        a.logo, a.mobile-sandwich{
             display: inline-block;
-            background: url("../imgs/logo.png") no-repeat;
             background-size: cover;
+            background-repeat: no-repeat;
         }
+        
+        a.logo{background-image: url("../imgs/logo.png");}    
+        
         ul{
             list-style-type: none;
             
@@ -30,21 +33,27 @@ header{
                 border-radius: 30px;
                 box-sizing: border-box;
                 
+                &:active{
+                    background-color: #909f98;
+                    a{color: #e8e8e8}
+                }
+                
                 a{
                     font-size: 19px;
                     text-decoration: none;
                     color: black;
                 }
-                
-                &:hover{
-                    border:2px solid #909f98;
-                    left: -2px;
-                    
-                    a{}
-                }
-                
-                &:last-child{margin-right: 0;}
+
             }
         }
+        
+        a.mobile-sandwich{background: url("../imgs/Snadwich.png");}
     }
+}
+
+.unselectable{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

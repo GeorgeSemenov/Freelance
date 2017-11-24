@@ -18,6 +18,9 @@
    <!--Указываем, где лежит фавиком -->
    <link rel="icon" type="image/vnd.microsoft.icon" href="imgs/logo.png">
    
+   <!--Подключаем JQuery скипты же подключим ниже , после, ближе к концу тега боди.-->
+   <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    
     <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -27,8 +30,8 @@
     <header class="unselectable">
         <nav>
             <a href="#" class="logo"></a>
-            <a href="#" class="mobile-sandwich"></a>
-            <ul class="buttons-group">
+            <a href="#" class="mobile-sandwich-close-button hidden"></a>
+            <ul class="buttons-group hidden" >
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Наши работы</a></li>
                 <li><a href="#">Этапы работы</a></li>
@@ -36,6 +39,6 @@
             </ul>
         </nav>
     </header>
-    
+   <script type="text/javascript" src="js/popup-menu-script.js"></script>
 </body>
 </html>

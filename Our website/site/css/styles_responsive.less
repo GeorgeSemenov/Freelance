@@ -6,7 +6,7 @@
         width: @desktop-nav-width;
         height: @desktop-header-height;
         
-        }
+        
         a.logo{
             width: @desktop-header-height;
             height: @desktop-header-height;
@@ -22,6 +22,13 @@
 
             }
         }
+    }
+    
+    .block-trade-text{
+        top: @desktop-header-height+15px;
+        width: @desktop-nav-width;
+        height: 525px;
+    }
 }
 
 //-----------------------------------PAD---------------------------------------------------------
@@ -45,10 +52,18 @@
                 }
             }
         }
+    
+    .block-trade-text{
+        top: @pad-header-height + 15px;
+        width: @pad-nav-width;
+        height: 500px;
+    }
 }
 
 //-----------------------------------MOBILE-------------------------------------------------------
 @media screen and (max-device-width:768px){//мобильнички тоже устройства.
+    
+    h1{font-size: 30px;}
     
     nav{
         height: @mobile-header-height;
@@ -78,6 +93,7 @@
         
         ul{
             background-color: @mobile-menu-background-color;
+            height: 170px;
             width: @mobile-menu-width;
             padding-left: 0;
             margin-top: -5px;
@@ -89,10 +105,16 @@
             &.opened{right: 0px;}
             
             li{
-                margin-top: 5px;  
+                margin-top: 10px;  
             }
             
         }
+    }
+    
+    .block-trade-text{
+        top: @mobile-header-height + 15px;
+        width: 305px;
+        height: 390px;
     }
     
 }
@@ -100,6 +122,8 @@
 //-----------------------------------DESKTOP AND PAD--------------------------------------------
 @media screen and (min-device-width:769px){//Для планшетов и мониторов
 
+    h1{font-size: 45px;}
+    
     header{
         nav{
             margin: 0 auto;

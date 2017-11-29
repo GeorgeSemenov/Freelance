@@ -4,17 +4,59 @@
     font-family: NotoSans;
     src: url(../fonts/NotoSans-Regular.ttf)
 }
-body{
-    font-family: NotoSans;
-    margin: 0;
-    height: 20000px;
-    -webkit-font-smoothing:antialiased;
+html{
+    height: 100%;
+    
+    body{
+        font-family: NotoSans;
+        margin: 0;
+        height: 100%;
+        -webkit-font-smoothing:antialiased;
+        color: black;
+        position: relative;
+        top: -36px;//Понятие не имею почему это происходит, но без этой записи образуется зазор между верхней границей браузера и контентом сайта в 21 пиксель, странно.
+    }
 }
+
+.frame{
+    height:100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.about-us{
+    background-image: url("../imgs/background-about-us.jpg");
+    opacity: 0.7;
+    
+    .block-trade-text{
+        margin: 0 auto;
+        position: relative;
+        border-radius: 30px;
+        background-color: #f4f4f4;
+        opacity: 0.7;
+        p{
+            text-align: center;
+        }
+        
+        h1{
+            text-align: center;
+            
+            i{text-decoration: underline;}
+        }
+
+    }
+}
+
+.summary{
+    background-color: brown;
+}
+    
 
 header{
     background-color: @header-background-color;
     position: fixed;
     width: 100%;
+    z-index: 1;
     
     nav{
         
@@ -50,6 +92,7 @@ header{
         
     }
 }
+
 
 .unselectable{
     -webkit-user-select: none;

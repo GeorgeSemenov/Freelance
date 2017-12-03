@@ -17,7 +17,7 @@
             
             li{
                 .button-settings(@desktop-btn-distance, @desktop-btn-width);                    
-                
+
                 &:hover{border:@btn-border-width solid #909f98;}
 
             }
@@ -28,6 +28,11 @@
         top: @desktop-header-height+15px;
         width: @desktop-nav-width;
         height: 525px;
+        ul li{ 
+            margin-left: 48px;
+        }
+         
+        font-size: 31px;
     }
 }
 
@@ -57,6 +62,9 @@
         top: @pad-header-height + 15px;
         width: @pad-nav-width;
         height: 500px;
+        font-size: 30px;
+        
+        ul li {margin-left: 9px;}
     }
 }
 
@@ -115,6 +123,11 @@
         top: @mobile-header-height + 15px;
         width: 305px;
         height: 390px;
+        font-size: 18px;
+        
+        h1{font-size: 30px;}
+        
+        ul li img {.marker-props-position(12px,0px);}
     }
     
 }
@@ -122,7 +135,7 @@
 //-----------------------------------DESKTOP AND PAD--------------------------------------------
 @media screen and (min-device-width:769px){//Для планшетов и мониторов
 
-    h1{font-size: 45px;}
+    .block-trade-text h1{font-size: 45px;}
     
     header{
         nav{
@@ -145,7 +158,9 @@
             }
         }
     }
-}
+    
+    .about-us .block-trade-text ul li img {.marker-props-position();}
+}    
 
 //-----------------------------------PAD AND MOBILE--------------------------------------------
 @media screen and (max-device-width:1000px){//Для планшетов и моблных
@@ -167,4 +182,10 @@
 .button-settings(@margin-right,@width){
     margin-right: @margin-right;
     width: @width;
+}
+
+.marker-props-position(@maker-side:18px,@maker-bottom:2px){
+    width: @maker-side;
+    height: @maker-side;
+    bottom: @maker-bottom;
 }
